@@ -15,6 +15,8 @@ import com.assis.dsvendas.dto.SaleSuccessDTO;
 import com.assis.dsvendas.dto.SaleSumDTO;
 import com.assis.dsvendas.service.SaleService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/sales")
 public class SaleController {
@@ -22,19 +24,22 @@ public class SaleController {
 	@Autowired
 	private SaleService service;
 	
-	@GetMapping
+	@ApiOperation(value = "Retorna uma lista com todas as vendas.")
+	@GetMapping(produces="application/json")
 	public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable) {
 		Page<SaleDTO> list = service.findAll(pageable);
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping(value = "/amount-by-seller")
+	@ApiOperation(value = "Retorna uma lista agrupada pelos vendedores com o total de vendas de cada um.")
+	@GetMapping(value = "/amount-by-seller", produces="application/json")
 	public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller() {
 		List<SaleSumDTO> list = service.amountGroupedBySeller();
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping(value = "/success-by-seller")
+	@ApiOperation(value = "Retorna uma lista agrupada pelos vendedores com o total de visitas e de negócios fechados.")
+	@GetMapping(value = "/success-by-seller", produces="application/json")
 	public ResponseEntity<List<SaleSuccessDTO>> successGroupedBySeller() {
 		List<SaleSuccessDTO> list = service.successGroupedBySeller();
 		return ResponseEntity.ok(list);
