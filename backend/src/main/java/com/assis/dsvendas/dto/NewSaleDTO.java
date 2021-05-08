@@ -3,46 +3,29 @@ package com.assis.dsvendas.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import com.assis.dsvendas.entities.Sale;
-
-public class SaleDTO implements Serializable {
+public class NewSaleDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	private Long sellerId;
 	private Integer visited;
 	private Integer deals;
 	private Double amount;
 	private LocalDate date;
 	
-	private SellerDTO seller;
-	
-	public SaleDTO() {
-	}
-
-	public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
-		this.id = id;
+	public NewSaleDTO(Long sellerId, Integer visited, Integer deals, Double amount, LocalDate date) {
+		this.sellerId = sellerId;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
 		this.date = date;
-		this.seller = seller;
-	}
-	
-	public SaleDTO(Sale entity) {
-		id = entity.getId();
-		visited = entity.getVisited();
-		deals = entity.getDeals();
-		amount = entity.getAmount();
-		date = entity.getDate();
-		seller = new SellerDTO(entity.getSeller());
 	}
 
-	public Long getId() {
-		return id;
+	public Long getSellerId() {
+		return sellerId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setSeller_id(Long sellerId) {
+		this.sellerId = sellerId;
 	}
 
 	public Integer getVisited() {
@@ -76,16 +59,7 @@ public class SaleDTO implements Serializable {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
-	public SellerDTO getSeller() {
-		return seller;
-	}
-
-	public void setSeller(SellerDTO seller) {
-		this.seller = seller;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
+	
+	
 }

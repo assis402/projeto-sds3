@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.assis.dsvendas.dto.SellerDTO;
+
 @Entity
 @Table(name = "tb_sellers")
 public class Seller {
@@ -28,6 +30,11 @@ public class Seller {
 	public Seller(Long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Seller(SellerDTO entity) {
+		id = entity.getId();
+		name = entity.getName();
 	}
 
 	public Long getId() {

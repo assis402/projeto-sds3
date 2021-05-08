@@ -6,6 +6,64 @@
 html, body {
     height: 100%;
     font-family: "Ubuntu", sans-serif;
+    background-color: rgb(29, 29, 29);
+}
+
+.bg-nav-footer {
+    background: rgb(0, 0, 0, 0.4);
+}
+
+.jumbotron {
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+.jumbotron h1 {
+    color: rgb(226, 226, 226);
+}
+
+.jumbotron p {
+    color: rgb(192, 192, 192);
+}
+
+text {
+    fill: rgb(226, 226, 226);
+}
+
+h5 {
+    color: rgb(226, 226, 226) !important;
+}
+
+table {
+    background-color: rgb(0 0 0 / 0%) !important;
+}
+
+.page-link {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-color: rgb(75, 75, 75) !important;
+    color: rgb(226, 226, 226);
+}
+
+button .disabled {
+    color: rgb(109, 109, 109) !important;
+}
+
+.page-link:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    color: rgb(226, 226, 226);
+}
+
+.page-link:focus {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: none;
+}
+
+.apexcharts-legend-text {
+    color: rgb(226, 226, 226) !important;
+}
+
+.apexcharts-pie-label {
+    fill: white;
+    color: white !important;
 }
 
 #root {

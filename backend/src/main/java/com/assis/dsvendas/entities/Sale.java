@@ -1,6 +1,7 @@
 package com.assis.dsvendas.entities;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.assis.dsvendas.dto.NewSaleDTO;
 
 @Entity
 @Table(name = "tb_sales")
@@ -37,6 +40,14 @@ public class Sale {
 		this.amount = amount;
 		this.date = date;
 		this.seller = seller;
+	}
+	
+	public Sale(NewSaleDTO entity, Optional<Seller> seller) {
+		visited = entity.getVisited();
+		deals = entity.getDeals();
+		amount = entity.getAmount();
+		date = entity.getDate();
+		this.seller = seller.get();
 	}
 
 	public Long getId() {

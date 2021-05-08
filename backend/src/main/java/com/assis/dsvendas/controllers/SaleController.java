@@ -8,8 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.assis.dsvendas.dto.NewSaleDTO;
 import com.assis.dsvendas.dto.SaleDTO;
 import com.assis.dsvendas.dto.SaleSuccessDTO;
 import com.assis.dsvendas.dto.SaleSumDTO;
@@ -23,6 +25,14 @@ public class SaleController {
 	
 	@Autowired
 	private SaleService service;
+	
+	@ApiOperation(value = "Salva uma nova venda.")
+	@GetMapping(produces="application/json")
+	@RequestMapping(method= RequestMethod.POST)
+	public ResponseEntity<SaleDTO> save(NewSaleDTO entity) {
+		SaleDTO newEntity = service.save(entity);
+		return ResponseEntity.ok(newEntity);
+	}
 	
 	@ApiOperation(value = "Retorna uma lista com todas as vendas.")
 	@GetMapping(produces="application/json")
